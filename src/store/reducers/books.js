@@ -2,7 +2,7 @@ const INITIAL_STATE = [];
 
 export default function books(state = INITIAL_STATE, action) {
   switch (action.type) {
-    // case: ACTION
+    case 'FILTER_BOOKS':
     default:
       return state;
   }
