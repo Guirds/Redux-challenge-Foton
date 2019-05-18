@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as BooksActions from '../../store/actions/list';
 
-const Main = () => (
+const Main = props => (
   <>
     <a href=" ">Menu</a>
     <input type="text" placeholder="Search for book" />
@@ -14,7 +14,16 @@ const Main = () => (
     <ul>
       {props.books.map(book => (
         <li key={book.id}>
-          <a href=" ">{book.img}</a>
+          <a href=" ">{book.imageLinks.thumbnail}</a>
+          <li>{book.title}</li>
+          <li>{book.pageCount}</li>
+          <li>
+            {' '}
+            <small>by</small>
+            {book.authors}
+          </li>
+          <li>{book.saleInfo.saleability}</li>
+          <li>{book.description}</li>
         </li>
       ))}
     </ul>
@@ -25,7 +34,16 @@ Main.propTypes = {
   books: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number,
-      text: PropTypes.string,
+      imageLinks: PropTypes.shape({
+        thumbnail: PropTypes.string,
+      }),
+      title: PropTypes.string,
+      pageCount: PropTypes.number,
+      authors: PropTypes.string,
+      description: PropTypes.string,
+      saleInfo: PropTypes.shape({
+        saleability: PropTypes.string,
+      }),
     }),
   ).isRequired,
 };
