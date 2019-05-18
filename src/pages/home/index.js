@@ -13,7 +13,7 @@ const Home = () => (
     data-scope="https://www.googleapis.com/auth/plus.login"
   >
     {' '}
-    teste
+    Go to page
   </button>
 );
 
