@@ -4,15 +4,15 @@ import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as BooksActions from '../../store/actions/list';
+import * as BooksActions from '../../store/actions/filterBook';
 
-const Main = props => (
+const Main = books => (
   <>
     <a href=" ">Menu</a>
     <input type="text" placeholder="Search for book" />
 
     <ul>
-      {props.books.map(book => (
+      {books.map(book => (
         <li key={book.id}>
           <a href=" ">{book.imageLinks.thumbnail}</a>
           <li>{book.title}</li>
@@ -29,7 +29,6 @@ const Main = props => (
     </ul>
   </>
 );
-
 Main.propTypes = {
   books: PropTypes.arrayOf(
     PropTypes.shape({
