@@ -6,11 +6,10 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as BooksActions from '../../store/actions/filterBook';
 
-import Header from '../../components/header';
+// import Header from '../../components/header';
 
 const Main = ({ books }) => (
   <>
-    <Header />
     <ul>
       {books.map(book => (
         <li key={book.id}>
@@ -58,4 +57,4 @@ const mapDispatchToProps = dispatch => bindActionCreators(BooksActions, dispatch
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Main, Header);
+)(Main);

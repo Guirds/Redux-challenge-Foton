@@ -1,13 +1,11 @@
+/*
 import React from 'react';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as BooksActions from '../../store/actions/books';
 
-const Header = books,  => (
-
-  handleFilterBooks()
-
+const Header = books => (
   <>
     <a href=" ">Menu</a>
     <form onSubmit={this.handleFilterBooks}>
@@ -31,3 +29,4 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps,
 )(Header);
+*/
