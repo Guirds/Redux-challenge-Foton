@@ -6,29 +6,25 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as BooksActions from '../../store/actions/filterBook';
 
-const Main = books => (
-  <>
-    <a href=" ">Menu</a>
-    <input type="text" placeholder="Search for book" />
-
-    <ul>
-      {books.map(book => (
-        <li key={book.id}>
-          <a href=" ">{book.imageLinks.thumbnail}</a>
-          <li>{book.title}</li>
-          <li>{book.pageCount}</li>
-          <li>
-            {' '}
-            <small>by</small>
-            {book.authors}
-          </li>
-          <li>{book.saleInfo.saleability}</li>
-          <li>{book.description}</li>
+const Main = ({ books }) => (
+  <ul>
+    {books.map(book => (
+      <li key={book.id}>
+        <a href=" ">{book.imageLinks.thumbnail}</a>
+        <li>{book.title}</li>
+        <li>{book.pageCount}</li>
+        <li>
+          {' '}
+          <small>by</small>
+          {book.authors}
         </li>
-      ))}
-    </ul>
-  </>
+        <li>{book.saleInfo.saleability}</li>
+        <li>{book.description}</li>
+      </li>
+    ))}
+  </ul>
 );
+
 Main.propTypes = {
   books: PropTypes.arrayOf(
     PropTypes.shape({
