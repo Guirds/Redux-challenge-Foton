@@ -6,23 +6,28 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as BooksActions from '../../store/actions/filterBook';
 
+import Header from '../../components/header';
+
 const Main = ({ books }) => (
-  <ul>
-    {books.map(book => (
-      <li key={book.id}>
-        <a href=" ">{book.imageLinks.thumbnail}</a>
-        <li>{book.title}</li>
-        <li>{book.pageCount}</li>
-        <li>
-          {' '}
-          <small>by</small>
-          {book.authors}
+  <>
+    <Header />
+    <ul>
+      {books.map(book => (
+        <li key={book.id}>
+          <a href=" ">{book.imageLinks.thumbnail}</a>
+          <li>{book.title}</li>
+          <li>{book.pageCount}</li>
+          <li>
+            {' '}
+            <small>by</small>
+            {book.authors}
+          </li>
+          <li>{book.saleInfo.saleability}</li>
+          <li>{book.description}</li>
         </li>
-        <li>{book.saleInfo.saleability}</li>
-        <li>{book.description}</li>
-      </li>
-    ))}
-  </ul>
+      ))}
+    </ul>
+  </>
 );
 
 Main.propTypes = {
@@ -44,6 +49,7 @@ Main.propTypes = {
 };
 
 const mapStateToProps = state => ({
+  filterBook: state.filterBook,
   books: state.books,
 });
 
@@ -52,4 +58,4 @@ const mapDispatchToProps = dispatch => bindActionCreators(BooksActions, dispatch
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Main);
+)(Main, Header);

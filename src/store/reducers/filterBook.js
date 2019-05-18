@@ -9,7 +9,7 @@ const INITIAL_STATE = [
   },
 ];
 
-export default function books(state = INITIAL_STATE, action) {
+export default function filterBooks(state = INITIAL_STATE, action) {
   switch (action.type) {
     case 'FILTER_BOOKS_SUCESS':
       return [...state, action.payload.data];
